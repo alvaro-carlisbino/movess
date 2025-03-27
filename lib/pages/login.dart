@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movess/utils.dart';
 
@@ -89,7 +90,9 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     padding: EdgeInsets.only(top: 20),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed("/home");
+                      },
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all<Color>(
                           AppColors.secondaryColor,
