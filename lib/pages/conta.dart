@@ -3,19 +3,24 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movess/utils.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class AccountPage extends StatefulWidget {
+  const AccountPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AccountPage> createState() => _AccountPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AccountPageState extends State<AccountPage> {
+
+  final String userName = "João";
+  final int servicesCompleted = 25;
+  final String accountCreated = "10 de Março de 2023";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: 2,
         selectedItemColor: AppColors.secondaryColor,
         unselectedItemColor: AppColors.primaryColor,
         onTap: (value) {
@@ -63,58 +68,56 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(top: 20, left: 15, right: 15),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: "Pesquisar",
 
-                  labelStyle: GoogleFonts.roboto(
-                    fontSize: 16,
-                    color: AppColors.primaryTextColor,
+
+           Text(
+                "Conta",
+                style: GoogleFonts.roboto(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primaryTextColor,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Card(
+                elevation: 3,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Nome: $userName", style: GoogleFonts.roboto(fontSize: 18)),
+                      const SizedBox(height: 10),
+                      Text("Serviços concluídos: $servicesCompleted", style: GoogleFonts.roboto(fontSize: 18)),
+                      const SizedBox(height: 10),
+                      Text("Conta criada em: $accountCreated", style: GoogleFonts.roboto(fontSize: 18)),
+                    ],
                   ),
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: AppColors.primaryTextColor,
+                ),
+              ),
+              const SizedBox(height: 30),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.offAllNamed("/login");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primaryColor,
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(
-                      color: AppColors.primaryTextColor,
-                      width: 2,
+                  child: Text(
+                    "Logout",
+                    style: GoogleFonts.roboto(
+                      fontSize: 18,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 20, left: 15, right: 15),
-              child: Text(
-                "Ordens de Serviço",
-                style: GoogleFonts.roboto(
-                  fontSize: 24,
-                  color: AppColors.primaryTextColor,
-                ),
-              ),
-            ),
-            SingleChildScrollView(
-              child: SizedBox(
-                height: 300,
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      child: ListTile(
-                        onTap: () => Get.toNamed('/ordem'),
-                        title: Text("Ordem de Serviço ${index + 1}"),
-                        subtitle: Text("Descrição da ordem de serviço"),
-                        trailing: Icon(Icons.arrow_forward),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
+            
+           
           ],
         ),
       ),

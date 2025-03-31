@@ -3,19 +3,19 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movess/utils.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HistoricoPage extends StatefulWidget {
+  const HistoricoPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HistoricoPage> createState() => _HistoricoPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HistoricoPageState extends State<HistoricoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: 1,
         selectedItemColor: AppColors.secondaryColor,
         unselectedItemColor: AppColors.primaryColor,
         onTap: (value) {
@@ -90,9 +90,9 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.only(top: 20, left: 15, right: 15),
               child: Text(
-                "Ordens de Serviço",
+                "Histórico de Ordens de Serviço",
                 style: GoogleFonts.roboto(
-                  fontSize: 24,
+                  fontSize: 20,
                   color: AppColors.primaryTextColor,
                 ),
               ),
@@ -105,9 +105,20 @@ class _HomePageState extends State<HomePage> {
                   itemBuilder: (context, index) {
                     return Card(
                       child: ListTile(
-                        onTap: () => Get.toNamed('/ordem'),
-                        title: Text("Ordem de Serviço ${index + 1}"),
-                        subtitle: Text("Descrição da ordem de serviço"),
+                        title: Text(
+                          "Ordem de Serviço #${index + 1}",
+                          style: GoogleFonts.roboto(
+                            fontSize: 18,
+                            color: AppColors.primaryTextColor,
+                          ),
+                        ),
+                        subtitle: Text(
+                          "Data: 01/01/2099",
+                          style: GoogleFonts.roboto(
+                            fontSize: 16,
+                            color: AppColors.primaryTextColor,
+                          ),
+                        ),
                         trailing: Icon(Icons.arrow_forward),
                       ),
                     );

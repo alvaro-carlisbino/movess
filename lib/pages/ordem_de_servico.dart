@@ -21,6 +21,10 @@ class _OrdemDeServicoState extends State<OrdemDeServico> {
         onTap: (value) {
           if (value == 0) {
             Get.toNamed("/home");
+          } else if (value == 1) {
+            Get.toNamed("/historico");
+          } else if (value == 2) {
+            Get.toNamed("/conta");
           }
         },
         items: [

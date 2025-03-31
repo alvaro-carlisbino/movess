@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movess/pages/conta.dart';
+import 'package:movess/pages/historico.dart';
 import 'package:movess/pages/home.dart';
 import 'package:movess/pages/login.dart';
 import 'package:get/get.dart';
@@ -28,6 +30,14 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/ordem',
           page: () => const OrdemDeServico(),
+        ),
+        GetPage(
+          name: "/historico",
+          page: () => const HistoricoPage(),
+        ),
+        GetPage(
+          name: "/conta",
+          page: () => const AccountPage(),
         )
       ],
       debugShowCheckedModeBanner: false,
