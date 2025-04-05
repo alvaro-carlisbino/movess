@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movess/utils.dart';
 
-class OrdemDeServico extends StatefulWidget {
-  const OrdemDeServico({super.key});
+class CameraOrdem extends StatefulWidget {
+  const CameraOrdem({super.key});
 
   @override
-  State<OrdemDeServico> createState() => _OrdemDeServicoState();
+  State<CameraOrdem> createState() => _CameraOrdemState();
 }
 
-class _OrdemDeServicoState extends State<OrdemDeServico> {
+class _CameraOrdemState extends State<CameraOrdem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,58 +79,41 @@ class _OrdemDeServicoState extends State<OrdemDeServico> {
 
                 children: [
                   Text(
-                    "Endereço: Rua 1, 123, São Paulo, SP",
+                    "Ordem de Serviço",
                     style: GoogleFonts.roboto(
-                      fontSize: 18,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                       color: AppColors.primaryTextColor,
                     ),
                   ),
-
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Text(
-                    "Nome do Cliente: João",
+                    "Fotos do Serviço:",
                     style: GoogleFonts.roboto(
                       fontSize: 18,
                       color: AppColors.primaryTextColor,
                     ),
                   ),
-                  SizedBox(height: 15),
-                  Text(
-                    "Horário Marcado: 10:00",
-                    style: GoogleFonts.roboto(
-                      fontSize: 18,
-                      color: AppColors.primaryTextColor,
+                  const SizedBox(height: 15),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.secondaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: Text(
+                      "Enviar Fotos",
+                      style: GoogleFonts.roboto(fontSize: 18, color: AppColors.primaryTextColor),
                     ),
                   ),
-                  SizedBox(height: 15),
-                  Text(
-                    "Status: Em andamento",
-                    style: GoogleFonts.roboto(
-                      fontSize: 18,
-                      color: AppColors.primaryTextColor,
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  Text(
-                    "Descrição: Montar uma mesa de jantar",
-                    style: GoogleFonts.roboto(
-                      fontSize: 18,
-                      color: AppColors.primaryTextColor,
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  Text(
-                    "Fotos: Ainda não há fotos",
-                    style: GoogleFonts.roboto(
-                      fontSize: 18,
-                      color: AppColors.primaryTextColor,
-                    ),
-                  ),
-
                   SizedBox(height: 15),
                   Center(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed("/ordem_final");
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.secondaryColor,
                         shape: RoundedRectangleBorder(
@@ -138,9 +121,9 @@ class _OrdemDeServicoState extends State<OrdemDeServico> {
                         ),
                       ),
                       child: Text(
-                        "Finalizar Ordem",
+                        "Confirmar",
                         style: GoogleFonts.righteous(
-                          fontSize: 18,
+                          fontSize: 22,
                           color: AppColors.primaryColor,
                         ),
                       ),

@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movess/utils.dart';
 
-class OrdemDeServico extends StatefulWidget {
-  const OrdemDeServico({super.key});
+class OrdemFinalizado extends StatefulWidget {
+  const OrdemFinalizado({super.key});
 
   @override
-  State<OrdemDeServico> createState() => _OrdemDeServicoState();
+  State<OrdemFinalizado> createState() => _OrdemFinalizadoState();
 }
 
-class _OrdemDeServicoState extends State<OrdemDeServico> {
+class _OrdemFinalizadoState extends State<OrdemFinalizado> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,11 +119,64 @@ class _OrdemDeServicoState extends State<OrdemDeServico> {
                     ),
                   ),
                   SizedBox(height: 15),
-                  Text(
-                    "Fotos: Ainda não há fotos",
-                    style: GoogleFonts.roboto(
-                      fontSize: 18,
-                      color: AppColors.primaryTextColor,
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.dialog(
+                        AlertDialog(
+                          title: Text(
+                            "Imagem da montagem",
+                            style: GoogleFonts.roboto(
+                              fontSize: 18,
+                              color: AppColors.primaryTextColor,
+                            ),
+                          ),
+                          content: Image.asset("assets/movel.png"),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.secondaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: Text(
+                      "Foto do Imóvel",
+                      style: GoogleFonts.roboto(
+                        fontSize: 18,
+                        color: AppColors.primaryTextColor,
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(height: 15),
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.dialog(
+                        AlertDialog(
+                          title: Text(
+                            "Assinatura",
+                            style: GoogleFonts.roboto(
+                              fontSize: 18,
+                              color: AppColors.primaryTextColor,
+                            ),
+                          ),
+                          content: Image.asset("assets/assinatura.jpg"),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.secondaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: Text(
+                      "Assinatura",
+                      style: GoogleFonts.roboto(
+                        fontSize: 18,
+                        color: AppColors.primaryTextColor,
+                      ),
                     ),
                   ),
 
